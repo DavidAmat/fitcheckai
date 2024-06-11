@@ -1,0 +1,4 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/poc/gpt-api",
+    "python.terminal.executeInFileDir": true
+}

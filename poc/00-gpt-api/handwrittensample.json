@@ -1,0 +1,21 @@
+{
+    "invoiceNumber": "",
+    "dateIssued": "1981-02-21",
+    "dueDate": "",
+    "from": {
+        "name": "WILLIAMS' BOOK STORE",
+        "address": "708 SOUTH PACIFIC AVENUE, San Pedro, Calif. 90731, 832-3631"
+    },
+    "to": {
+        "name": "Ellen Leonard",
+        "address": "1351 W 15th St, SP 90732, 832-3436"
+    },
+    "items": [
+        {
+            "description": "Great Tastes of Chinese Cooking",
+            "quantity": 1,
+            "price": 12.95
+        }
+    ],
+    "total": 13.73
+}

@@ -1,0 +1,6 @@
+pandas
+numpy
+openai>=1.2.0
+ipykernel
+jupyterlab
+python-dotenv
