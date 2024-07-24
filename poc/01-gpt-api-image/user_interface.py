@@ -25,12 +25,14 @@ class UserInterface:
         )
         self.manager.create_thread()
 
-    def upload_image(self, image_path=None, image_binary: io.BufferedReader = None, file_id=None, with_message: str = None):
-       
+    def upload_image(
+        self, image_path=None, image_binary: io.BufferedReader = None, file_id=None, with_message: str = None
+    ):
+
         # Image (check if the file_id is already set, indicating the image is already uploaded)
         if file_id is None:
             # If the image is already in binary format, use it directly
-            if image_binary:
+            if image_binary is None:
                 self.manager.upload_file(file_handle=image_binary)
             else:
                 # Otherwise read the path
@@ -51,35 +53,34 @@ class UserInterface:
         summary = self.manager.get_summary()
         metadata = [step.to_dict() for step in self.manager.run_steps()]
         return summary, metadata
-        
 
 
 if __name__ == "__main__":
     # file_id = "file-wLbsLZ2Ch4jb7tK4zyzftSve"
-    ui = UserInterface(client=client, model="gpt-4o", occasion="Ibiza party")
+    ui = UserInterface(client=client, model="gpt-4o-mini", occasion="Ibiza party")
     ui.setup_assistant()
     image_path = "poc/01-gpt-api-image/f_party.jpg"
     ui.upload_image(image_path=image_path)
     summary, metadata = ui.run_assistant()
-    
-    print("##"*20)
-    print("           Summary ")
-    print("##"*20)
+
+    print("##" * 20)
+    print("           Summary (ChatGPT Mini 4o) ")
+    print("##" * 20)
     print(summary)
-    print("##"*20)
+    print("##" * 20)
     print("           Metadata ")
-    print("##"*20)
+    print("##" * 20)
     print(json.dumps(metadata, indent=4))
-    
+
     # Example of adding a text message to the same thread
     ui.add_text_message("What if I replace the glasses by other ones? Which style would you recommend?")
     summary2, metadata2 = ui.run_assistant()
 
-    print("##"*20)
+    print("##" * 20)
     print("           Summary2 ")
-    print("##"*20)
+    print("##" * 20)
     print(summary2)
-    print("##"*20)
+    print("##" * 20)
     print("           Metadata2 ")
-    print("##"*20)
+    print("##" * 20)
     print(json.dumps(metadata2, indent=4))

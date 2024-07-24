@@ -8,6 +8,10 @@ import openai
 import random
 import string
 
+# fit
+# cd poc/01-gpt-api-image
+# streamlit run mvp_streamlit_chatbot.py 
+
 st.title("ChatGPT-like clone")
 
 load_dotenv()
